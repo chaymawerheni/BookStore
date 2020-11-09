@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bookstore;
+package bookstore.main;
 
+import bookstore.Models.Book;
 import bookstore.Models.Utility;
 import java.util.Scanner;
+import dao.ConnectSing;
+import java.util.ArrayList;
+import static bookstore.controller.BookCtrl.*;
 
 /**
  *
@@ -19,7 +23,7 @@ public class BookStore {
      */
     public static void main(String[] args) {
        
-        Scanner sc = new Scanner(System.in);
+       /* Scanner sc = new Scanner(System.in);
         
         System.out.println("Donner le nbr de quantite");
         int qte= sc.nextInt();
@@ -31,7 +35,51 @@ public class BookStore {
         
         double result= u.calculTotalPrice(qte, unitP);
         
-        System.out.println(result);
+        System.out.println(result);*/
+       //ConnectSing.GetInstance();
+           
+       
+               int chx;
+
+        do {
+
+            System.out.println("_________________________________________________");
+            System.out.println("___________________Bienvenue_____________________");
+            System.out.println("________1/Afficher la liste des livres");
+            System.out.println("________2/Ajouter un livre");
+            System.out.println("________3/ Quitter_______________________________");
+            System.out.println("_________________________________________________\n");
+
+            do {
+
+                Scanner sc = new Scanner(System.in);
+
+                System.out.println("Saisissez votre choix");
+                chx = sc.nextInt();
+
+            } while (chx < 0 && chx > 4);
+
+            switch (chx) {
+                case 1:
+                     ArrayList<Book> list = new ArrayList();
+                     AfficheList(list);
+                    break;
+                case 2:
+                    AjoutBookBD();
+                    System.out.println("\n");
+                    break;
+                case 3:
+                    System.out.println("___________________A bientot!_____________________");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("!!!!");
+
+            }
+
+        } while (chx != 6);
+       
+       
     }
     
 }

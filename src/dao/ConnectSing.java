@@ -4,28 +4,27 @@
  * and open the template in the editor.
  */
 package dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 
 /**
  *
  * @author Chayma
  */
 public class ConnectSing {
+
     public static Connection connect;
-    
-    
-    public ConnectSing(){
-        
-        
+
+    public ConnectSing() {
+
         System.out.println("Connection test...");
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("pilote charged");
-        }catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
 
             System.out.println("Where is your MYSQL JDBC Driver?");
             e.printStackTrace();
@@ -34,9 +33,8 @@ public class ConnectSing {
         }
         System.out.println("MYSQL JDBC Driver Registered!");
         try {
-            
 
-           connect= DriverManager.getConnection("jdbc:mysql://localhost:3306/bookstore", "root", "");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookstore", "root", "");
 
         } catch (SQLException e) {
 
@@ -52,20 +50,20 @@ public class ConnectSing {
             System.out.println("Connection Failed!");
         }
     }
-    public static Connection GetInstance(){
-         
-        if(connect==null){
+
+    public static Connection GetInstance() {
+
+        if (connect == null) {
             System.out.println("\n");
             System.out.println("_____________Etablissement de la connection avec la bd _____________");
             System.out.println("instantiation of MySQL database");
             new ConnectSing();
-                 
-        }
-        else {
+
+        } else {
             System.out.println("               ");
             System.out.println("               \n");
         }
         return connect;
     }
-        
+
 }

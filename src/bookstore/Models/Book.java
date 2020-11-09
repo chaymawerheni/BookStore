@@ -6,19 +6,17 @@
 package bookstore.Models;
 
 
-import java.sql.Date;
-
 /**
  *
  * @author Chayma
  */
 public class Book {
-    
-    private int id ;
-    private String titre ;
-    private String author ;
-    private double price ;
-    private String releaseDate ;
+
+    private int id;
+    private String titre;
+    private String author;
+    private double price;
+    private String releaseDate;
 
     public Book(int id, String titre, String author, double price, String releaseDate) {
         this.id = id;
@@ -79,9 +77,5 @@ public class Book {
     public String toString() {
         return "Book{" + "id=" + id + ", titre=" + titre + ", author=" + author + ", price=" + price + ", releaseDate=" + releaseDate + '}';
     }
-    
-    
-    
-    
-    
+
 }

@@ -8,7 +8,6 @@ package bookstore.main;
 import bookstore.Models.Book;
 import bookstore.Models.Utility;
 import java.util.Scanner;
-import dao.ConnectSing;
 import java.util.ArrayList;
 import static bookstore.controller.BookCtrl.*;
 
@@ -35,10 +34,7 @@ public class BookStore {
         
         double result= u.calculTotalPrice(qte, unitP);
         
-        System.out.println(result);*/
-       //ConnectSing.GetInstance();
-           
-       
+        System.out.println(result);*/    
                int chx;
 
         do {

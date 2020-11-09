@@ -21,26 +21,26 @@ import java.util.logging.Logger;
  * @author Chayma
  */
 public class BookCtrl {
-    
-    public BookCtrl(){
-    
+
+    public BookCtrl() {
+
         ConnectSing.GetInstance();
     }
-    
-        public static Book getBook(int id) {
+
+    public static Book getBook(int id) {
         Book book = null;
         try {
             ResultSet r;
             Statement st;
 
             String req = ("select * from book where id ='" + id + "'");
-            
+
             st = ConnectSing.GetInstance().createStatement();
             r = st.executeQuery(req);
-            
+
             while (r.next()) {
-                
-                book = new Book(r.getInt(1),r.getString(2),r.getString(3),r.getDouble(4),r.getString(5));
+
+                book = new Book(r.getInt(1), r.getString(2), r.getString(3), r.getDouble(4), r.getString(5));
             }
 
         } catch (SQLException ex) {
@@ -49,7 +49,7 @@ public class BookCtrl {
         return book;
 
     }
-    
+
     public static ArrayList getListBook() {
         Book book = null;
         ArrayList<Book> list = new ArrayList();
@@ -62,9 +62,9 @@ public class BookCtrl {
             st = ConnectSing.GetInstance().createStatement();
             r = st.executeQuery(req);
             while (r.next()) {
-               book = new Book(r.getInt(1),r.getString(2),r.getString(3),r.getDouble(4),r.getString(5));
-               
-               list.add(book);
+                book = new Book(r.getInt(1), r.getString(2), r.getString(3), r.getDouble(4), r.getString(5));
+
+                list.add(book);
             }
 
         } catch (SQLException ex) {
@@ -72,12 +72,12 @@ public class BookCtrl {
         }
         return list;
     }
-    
-     public static void AfficheList(ArrayList<Book> listBook) {
+
+    public static void AfficheList(ArrayList<Book> listBook) {
 
         listBook = getListBook();
         System.out.println("Liste des livres :\n\n");
-        
+
         for (Book b : listBook) {
 
             System.out.println("Livre N° :" + b.getId());
@@ -89,36 +89,35 @@ public class BookCtrl {
 
         }
     }
-    
-        public static void AjoutBookBD() {
+
+    public static void AjoutBookBD() {
 
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Saisissez le Titre d'un nouveau livre");
         String titre = sc.nextLine();
-        
+
         System.out.println("Saisissez l'auther d'un nouveau livre");
         String author = sc.nextLine();
-        
+
         System.out.println("Saisissez le prix d'un nouveau livre");
         double price = sc.nextDouble();
         sc.nextLine();
-        
+
         System.out.println("Saisissez la date de creation du livre");
         System.out.println("Format : aaaa-mm-jj");
-        
+
         String dateR = sc.nextLine();
-       
-        
-        Book b = new Book(titre,author,price,dateR);
+
+        Book b = new Book(titre, author, price, dateR);
 
         try {
 
             String req = "insert into book (title,author,price,release_date) "
-                    + "values ('" + b.getTitre()+ "','" + b.getAuthor() + "','" + b.getPrice() + "','" + b.getReleaseDate() + "')";
+                    + "values ('" + b.getTitre() + "','" + b.getAuthor() + "','" + b.getPrice() + "','" + b.getReleaseDate() + "')";
 
             PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
-            
+
             preparedStmt.execute();
             System.out.println("Un nouveau livre a ete ajouter avec succee!");
 
@@ -127,5 +126,5 @@ public class BookCtrl {
         }
 
     }
-    
+
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package bookstore.connect;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ public class ConnectSing {
 
     public static Connection connect;
 
-    public ConnectSing() {
+    private ConnectSing() {
 
         System.out.println("Connection test...");
         try {

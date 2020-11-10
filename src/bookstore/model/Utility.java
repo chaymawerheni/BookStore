@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bookstore.Models;
+package bookstore.model;
 
 /**
  *
  * @author Chayma
  */
-public class Utility implements calculateTotalPrice{
+public class Utility implements CalculateTotalPrice{
     
     
     int qte;

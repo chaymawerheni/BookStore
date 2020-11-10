@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package bookstore.model;
 
 /**
  *
  * @author Chayma
  */
-public class DaoBook {
+public interface CalculateTotalPrice {
     
+    public double calculTotalPrice(int qte,double unitePrice);
 }

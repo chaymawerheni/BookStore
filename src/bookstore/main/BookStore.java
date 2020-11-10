@@ -5,8 +5,8 @@
  */
 package bookstore.main;
 
-import bookstore.Models.Book;
-import bookstore.Models.Utility;
+import bookstore.model.Book;
+import bookstore.model.Utility;
 import java.util.Scanner;
 import java.util.ArrayList;
 import static bookstore.controller.BookCtrl.*;

@@ -5,8 +5,8 @@
  */
 package bookstore.controller;
 
-import bookstore.Models.Book;
-import dao.ConnectSing;
+import bookstore.model.Book;
+import bookstore.connect.ConnectSing;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -40,7 +40,7 @@ public class BookCtrl {
 
             while (r.next()) {
 
-                book = new Book(r.getInt(1), r.getString(2), r.getString(3), r.getDouble(4), r.getString(5));
+                book = new Book(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5));
             }
 
         } catch (SQLException ex) {
@@ -62,7 +62,7 @@ public class BookCtrl {
             st = ConnectSing.GetInstance().createStatement();
             r = st.executeQuery(req);
             while (r.next()) {
-                book = new Book(r.getInt(1), r.getString(2), r.getString(3), r.getDouble(4), r.getString(5));
+                book = new Book(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5));
 
                 list.add(book);
             }
@@ -90,41 +90,72 @@ public class BookCtrl {
         }
     }
 
-    public static void AjoutBookBD() {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Saisissez le Titre d'un nouveau livre");
-        String titre = sc.nextLine();
-
-        System.out.println("Saisissez l'auther d'un nouveau livre");
-        String author = sc.nextLine();
-
-        System.out.println("Saisissez le prix d'un nouveau livre");
-        double price = sc.nextDouble();
-        sc.nextLine();
-
-        System.out.println("Saisissez la date de creation du livre");
-        System.out.println("Format : aaaa-mm-jj");
-
-        String dateR = sc.nextLine();
-
-        Book b = new Book(titre, author, price, dateR);
+   public static void AjoutBookBD(Book b) {
 
         try {
 
             String req = "insert into book (title,author,price,release_date) "
-                    + "values ('" + b.getTitre() + "','" + b.getAuthor() + "','" + b.getPrice() + "','" + b.getReleaseDate() + "')";
+                    + "values ('" + b.getTitre() + "','" + b.getAuthor() + "','" + b.getPrice() + "','" 
+                                    + b.getReleaseDate() + "')";
 
             PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
 
             preparedStmt.execute();
+            
             System.out.println("Un nouveau livre a ete ajouter avec succee!");
 
         } catch (SQLException ex) {
             Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    public static void ModifyBookBD(Book b) {
+
+
+        if (b != null) {
+            
+            String req = "update book set title = '"+b.getTitre()+"', author = '"+b.getAuthor()
+                    +"', price='"+b.getPrice()+"', release_date = '"+b.getReleaseDate()+"' where id = "+b.getId();
+            try {
+              
+                PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
+                preparedStmt.execute();
+                System.out.println("Le nom du livre a ete modifier avec succee!");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            System.out.println("ce livre n'existe pas, verifier l'id ");
+        }
+
+  
+    }
+    
+    public static void DeleteBookBD(Book b) {
+
+
+        if (b != null) {
+            
+            String req = "delete from book where id = "+b.getId();
+            
+            try {
+             
+                PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
+                preparedStmt.execute();
+                System.out.println("Le livre a été supprimer avec succee!");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            System.out.println("ce livre n existe pas, verifier l id ");
+        }
+
+  
     }
 
 }

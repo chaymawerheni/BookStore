@@ -6,6 +6,14 @@
 package bookstore.model;
 
 
+import static bookstore.controller.BookCtrl.DeleteBookBD;
+import static bookstore.controller.BookCtrl.ModifyBookBD;
+import bookstore.view.HomePage.TableController;
+import static bookstore.view.HomePage.TableController.loadData;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+
+
 /**
  *
  * @author Chayma
@@ -15,10 +23,16 @@ public class Book {
     private int id;
     private String titre;
     private String author;
-    private double price;
+    private String price;
     private String releaseDate;
+    
+    public Button update;
+    public Button delete;
+    
+    
+    
 
-    public Book(int id, String titre, String author, double price, String releaseDate) {
+    public Book(int id, String titre, String author, String price, String releaseDate) {
         this.id = id;
         this.titre = titre;
         this.author = author;
@@ -26,12 +40,65 @@ public class Book {
         this.releaseDate = releaseDate;
     }
 
-    public Book(String titre, String author, double price, String releaseDate) {
+    public Book(String titre, String author, String price, String releaseDate) {
         this.titre = titre;
         this.author = author;
         this.price = price;
         this.releaseDate = releaseDate;
     }
+     public Book(int id ,String titre, String author, String price, String releaseDate, Button update, Button delete) {
+        this.id = id;
+         this.titre = titre;
+        this.author = author;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        this.update=update;
+        this.delete=delete;
+        
+        update.setOnAction(e -> {
+         /*   for  (Book book : TableController.oblist) { 
+                if (book.getUpdate() == update){
+                    System.out.println("Id :" +book.getId());
+                    System.out.println("Titre :" +book.getTitre());
+                    System.out.println("Auteur :" +book.getAuthor());
+                    System.out.println("Prix :" +book.getPrice());
+                    System.out.println("Date :" +book.getReleaseDate());
+                
+            } */
+         
+            ObservableList <Book> books = TableController.table2.getSelectionModel().getSelectedItems();
+             for  (Book book : books) { 
+                if (book.getUpdate() == update){
+                    
+                   ModifyBookBD(book);
+                    
+                    /*System.out.println("Id :" +book.getId());
+                    System.out.println("Titre :" +book.getTitre());
+                    System.out.println("Auteur :" +book.getAuthor());
+                    System.out.println("Prix :" +book.getPrice());
+                    System.out.println("Date :" +book.getReleaseDate());*/
+                
+            }
+             }
+        
+    });
+       
+      delete.setOnAction(e-> {
+          
+          ObservableList <Book> books = TableController.table2.getSelectionModel().getSelectedItems();
+          
+          for(Book book : books){
+              if(book.getDelete()== delete){
+                  
+                  DeleteBookBD(book);
+                  loadData();
+              }
+          }
+  
+      });
+    }
+
+  
 
     public int getId() {
         return id;
@@ -57,11 +124,11 @@ public class Book {
         this.author = author;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -71,6 +138,22 @@ public class Book {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public Button getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(Button update) {
+        this.update = update;
+    }
+
+    public Button getDelete() {
+        return delete;
+    }
+
+    public void setDelete(Button delete) {
+        this.delete = delete;
     }
 
     @Override

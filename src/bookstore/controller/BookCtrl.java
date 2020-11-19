@@ -91,19 +91,25 @@ public class BookCtrl {
         }
     }
 
-    public static void AjoutBookBD(Book b) {
+   public static void AjoutBookBD(Book b) {
 
         try {
 
-            String req = "insert into book (title,author,price,release_date) "
-                    + "values ('" + b.getTitre() + "','" + b.getAuthor() + "','" + b.getPrice() + "','" 
-                                    + b.getReleaseDate() + "')";
+            String req = "insert into book (title,author,price,release_date, couverture) "
+                    + "values ('" + b.getTitre() + "','" + b.getAuthor() + "','" + b.getPrice() + "','" + b.getReleaseDate() + "','" 
+                    + b.getCouverture() + "')";
 
             PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
 
             preparedStmt.execute();
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("Ajout de Livre");
+                alert.setContentText("Le livre a été ajouter avec succee!");
+
+                alert.showAndWait();
             
-            System.out.println("Un nouveau livre a ete ajouter avec succee!");
+//            System.out.println("Un nouveau livre a ete ajouter avec succee!");
 
         } catch (SQLException ex) {
             Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -122,7 +128,13 @@ public class BookCtrl {
               
                 PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
                 preparedStmt.execute();
-                System.out.println("Le nom du livre a ete modifier avec succee!");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("Modification du Livre");
+                alert.setContentText("Le nom du livre a ete modifier avec succee!");
+
+                alert.showAndWait();
+//                System.out.println("Le nom du livre a ete modifier avec succee!");
 
             } catch (SQLException ex) {
                 Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,7 +158,14 @@ public class BookCtrl {
              
                 PreparedStatement preparedStmt = ConnectSing.GetInstance().prepareStatement(req);
                 preparedStmt.execute();
-                System.out.println("Le livre a été supprimer avec succee!");
+                
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("Suppression du Livre");
+                alert.setContentText("Le livre a été supprimer avec succee!");
+
+                alert.showAndWait();
+//                System.out.println("Le livre a été supprimer avec succee!");
 
             } catch (SQLException ex) {
                 Logger.getLogger(BookCtrl.class.getName()).log(Level.SEVERE, null, ex);

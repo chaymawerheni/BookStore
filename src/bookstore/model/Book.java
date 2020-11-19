@@ -5,13 +5,15 @@
  */
 package bookstore.model;
 
-
-import static bookstore.controller.BookCtrl.DeleteBookBD;
-import static bookstore.controller.BookCtrl.ModifyBookBD;
 import bookstore.view.HomePage.TableController;
-import static bookstore.view.HomePage.TableController.loadData;
+import static com.oracle.util.Checksums.update;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import static bookstore.controller.BookCtrl.DeleteBookBD;
+import static bookstore.controller.BookCtrl.ModifyBookBD;
+import static bookstore.view.HomePage.TableController.loadData;
+import javafx.collections.FXCollections;
+import javafx.scene.control.CheckBox;
 
 
 /**
@@ -25,11 +27,10 @@ public class Book {
     private String author;
     private String price;
     private String releaseDate;
-    
+    private String couverture ;
     public Button update;
     public Button delete;
-    
-    
+    public CheckBox checklivre;
     
 
     public Book(int id, String titre, String author, String price, String releaseDate) {
@@ -46,12 +47,21 @@ public class Book {
         this.price = price;
         this.releaseDate = releaseDate;
     }
-     public Book(int id ,String titre, String author, String price, String releaseDate, Button update, Button delete) {
+    
+    public Book(String titre, String author, String price, String releaseDate, String couverture) {
+        this.titre = titre;
+        this.author = author;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        this.couverture = couverture;
+    }
+     public Book(int id ,String titre, String author, String price, String releaseDate,String couverture ,Button update, Button delete) {
         this.id = id;
          this.titre = titre;
         this.author = author;
         this.price = price;
         this.releaseDate = releaseDate;
+        this.couverture = couverture;
         this.update=update;
         this.delete=delete;
         
@@ -98,7 +108,31 @@ public class Book {
       });
     }
 
-  
+  public Book(int id ,String titre, String price, CheckBox checklivre) {
+        this.id = id;
+         this.titre = titre;
+        this.checklivre=checklivre;
+        this.price = price;
+     
+        //this.checklivre=checklivre;
+        ObservableList <String> checkboxList = FXCollections.observableArrayList();
+        checklivre.setOnAction(e->{
+        
+        checkboxList.add(checklivre.getText());
+        });
+        
+        
+        
+ 
+  }
+
+    public CheckBox getChecklivre() {
+        return checklivre;
+    }
+
+    public void setChecklivre(CheckBox checklivre) {
+        this.checklivre = checklivre;
+    }
 
     public int getId() {
         return id;
@@ -155,6 +189,15 @@ public class Book {
     public void setDelete(Button delete) {
         this.delete = delete;
     }
+
+    public String getCouverture() {
+        return couverture;
+    }
+
+    public void setCouverture(String couverture) {
+        this.couverture = couverture;
+    }
+    
 
     @Override
     public String toString() {

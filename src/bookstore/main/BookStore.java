@@ -10,7 +10,6 @@ import bookstore.model.Utility;
 import java.util.Scanner;
 import java.util.ArrayList;
 import static bookstore.controller.BookCtrl.*;
-import bookstore.view.HomePage.HomePageMain;
 
 /**
  *
@@ -22,9 +21,6 @@ public class BookStore {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-       
        
        /* Scanner sc = new Scanner(System.in);
         
@@ -38,7 +34,7 @@ public class BookStore {
         
         double result= u.calculTotalPrice(qte, unitP);
         
-        System.out.println(result);    
+        System.out.println(result);*/    
                int chx;
 
         do {
@@ -65,7 +61,7 @@ public class BookStore {
                      AfficheList(list);
                     break;
                 case 2:
-                    //AjoutBookBD();
+                    AjoutBookBD();
                     System.out.println("\n");
                     break;
                 case 3:
@@ -77,9 +73,13 @@ public class BookStore {
 
             }
 
-        } while (chx != 6);*/
+        } while (chx != 6);
        
        
+    }
+
+    private static void AjoutBookBD() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

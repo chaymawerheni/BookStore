@@ -34,7 +34,7 @@ public class ConnectSing {
         System.out.println("MYSQL JDBC Driver Registered!");
         try {
 
-            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookstore", "root", "");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3308/bookstore", "root", "");
 
         } catch (SQLException e) {
 

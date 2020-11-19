@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="1075.0" style="-fx-background-color: #96236D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.view.HomePage.UserLoginController">
+   <children>
+      <ImageView fitHeight="369.0" fitWidth="488.0" layoutX="22.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/Lucy/Desktop/BookStoreProject/bookstoreProject/src/bookstore/Images/BookStoreV1.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="546.0" layoutY="19.0" prefHeight="543.0" prefWidth="501.0" style="-fx-background-color: #7B246D;">
+         <children>
+            <ImageView fitHeight="229.0" fitWidth="310.0" layoutX="128.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Lucy/Desktop/Vermeg-Git/OurLogo.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="130.0" layoutY="318.0" prefWidth="300.0" promptText="Username" />
+            <TextField layoutX="130.0" layoutY="386.0" prefWidth="300.0" promptText="Password" />
+            <Button layoutX="130.0" layoutY="463.0" mnemonicParsing="false" onAction="#changeScreenButtontoHome" prefWidth="300.0" text="Connexion" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

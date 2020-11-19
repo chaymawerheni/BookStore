@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="1073.0" style="-fx-background-color: #96236D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommandsLIst.CommandListController">
+   <children>
+      <TableView fx:id="table" editable="true" layoutX="71.0" layoutY="166.0" prefHeight="409.0" prefWidth="984.0" style="-fx-background-color: white;" stylesheets="" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="156.0">
+        <columns>
+          <TableColumn fx:id="idCmd" prefWidth="145.0" text="ID Commande" />
+          <TableColumn fx:id="dateCmd" prefWidth="150.0" text="Date Commande" />
+            <TableColumn fx:id="idClient" prefWidth="108.0" text="ID Client" />
+            <TableColumn fx:id="nomPrenomClt" prefWidth="223.0" text="Nom et Prenom Client" />
+            <TableColumn fx:id="idBook" prefWidth="79.0" text="ID Livre" />
+            <TableColumn fx:id="titreBook" prefWidth="115.0" text="Titre Livre" />
+            <TableColumn fx:id="prixUnit" prefWidth="123.0" text="Prix Unitaire" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="244.0" layoutY="84.0" prefHeight="41.0" prefWidth="593.0" text="Liste des Commandes par utilisateur " textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="78.0" fitWidth="105.0" layoutX="499.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/Lucy/Desktop/Vermeg-Git/OurLogo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="30.0" layoutY="27.0" mnemonicParsing="false" onAction="#changeScreenButtonGoBack" text="Acceuil" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstore.view.HomePage.CopyRightsController">
+   <children>
+      <ImageView fitHeight="377.0" fitWidth="510.0" layoutX="123.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/Lucy/Desktop/BookStoreProject/bookstoreProject/src/bookstore/Images/BookStore.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="24.0" layoutY="14.0" text="Equipe  :" />
+      <Pane layoutX="3.0" layoutY="5.0" prefHeight="579.0" prefWidth="119.0" style="-fx-background-color: #96236D;" />
+      <Pane layoutX="635.0" layoutY="4.0" prefHeight="579.0" prefWidth="432.0" style="-fx-background-color: #96236D;">
+         <children>
+            <VBox layoutX="222.0" layoutY="27.0" prefHeight="35.0" prefWidth="200.0" />
+            <Text fill="WHITE" layoutX="14.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ce projet a été développé dans le cadre de la formation d’initiation à la vie professionnel  au sein de Sesame University en collaboration avec le Group VERMEG" textAlignment="CENTER" wrappingWidth="417.453125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="64.0" fitWidth="192.0" layoutX="14.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Lucy/Desktop/BookStoreProject/bookstoreProject/src/bookstore/Images/Logos-Sesame.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Lucy/Desktop/BookStoreProject/bookstoreProject/src/bookstore/Images/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="128.0" fitWidth="440.0" layoutX="-1.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/Lucy/Desktop/BookStoreProject/bookstoreProject/src/bookstore/Images/Empowered.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="14.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réalisé par :" textAlignment="CENTER" wrappingWidth="417.453125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="14.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Youssef Hmidi et Chayma Werheni sous la direction de Mr Mohamed Amine Mezghich" textAlignment="CENTER" wrappingWidth="417.453125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Text fill="#8f2222" layoutX="292.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CopyRights 2020-2021" />
+      <Button layoutX="222.0" layoutY="449.0" mnemonicParsing="false" onAction="#changeScreenButtonPushedCopyRight" prefHeight="47.0" prefWidth="301.0" text="Start" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

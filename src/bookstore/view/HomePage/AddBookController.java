@@ -5,15 +5,13 @@
  */
 package bookstore.view.HomePage;
 
-import bookstore.model.Book;
 import static bookstore.controller.BookCtrl.AjoutBookBD;
+import bookstore.model.Book;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,7 +40,7 @@ public class AddBookController implements Initializable {
     private TextField PriceField;
 
     @FXML
-    private Button AddButton;
+   private Button AddButton;
    
     @FXML
     private TextField nameField;
@@ -50,6 +48,9 @@ public class AddBookController implements Initializable {
     @FXML
     private TextField DateField;
 
+    @FXML
+    private TextField coverField;
+    
     @FXML
     private Label PriceLabel;
 
@@ -61,6 +62,7 @@ public class AddBookController implements Initializable {
 
     @FXML
     private Label nameLabel;
+    
     
     public void changeScreenButtonGoBack(ActionEvent event) throws IOException
     {
@@ -74,11 +76,10 @@ public class AddBookController implements Initializable {
         window.show();
     }
 
-          
-     public void addBookActionEvent(ActionEvent event)throws IOException{
+    public void addBookActionEvent(ActionEvent event)throws IOException{
      
          AddButton.setOnAction((ActionEvent) -> {
-             Book b= new Book(nameField.getText(),authorField.getText(),PriceField.getText(),DateField.getText());
+             Book b= new Book(nameField.getText(),authorField.getText(),PriceField.getText(),DateField.getText(), coverField.getText());
              AjoutBookBD(b);
          });
           
